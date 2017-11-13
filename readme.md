@@ -4,7 +4,7 @@
 In your project directory, run:
 
 ```
-npm init --y
+npm init -y
 ```
 
 ## Install Dependencies
@@ -14,8 +14,9 @@ npm install --save webpack react react-dom babel-core babel-loader babel-preset-
 ```
 
 ## Configure Webpack()
-- Make a file in your project directory: `webpack.config.js` and paste the following
-```
+- Make a file `webpack.config.js` and paste the following
+
+``` js
 var path = require('path');
 
 module.exports = {
@@ -42,11 +43,50 @@ module.exports = {
     extensions: [".js", ".jsx", "*"]
   }
 };
-
 ```
 
 - Add a `webpack` script for webpack to your `package.json` (`"webpack": "webpack --watch"`)
 
+- Create `index.html` and paste the following 
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRUD Mutably</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+	<link rel="stylesheet" href="./index.css">
+	<script src="bundle.js"></script>
+</head>
+<body>
+	<div id='root'/>
+</body>
+</html>
+```
+
+- Create a file `index.css` and paste the following 
+
+``` css
+body {
+  background: deepskyblue;
+}
+```
+
+- Create a file `app.jsx` and paste the following 
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+document.addEventListener("DOMContentLoaded", () => {
+	const root = document.getElementById("root");
+	ReactDOM.render(
+	<div>
+    <h1>Welcome To React</h1>
+	</div>, root);
+});
+```
 
 * Run `npm run webpack` in your terminal, then open `index.html`. Congratulations:
 you're up and running!

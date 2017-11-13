@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import MainFrame from './main-frame'
 
 document.addEventListener("DOMContentLoaded", () => {
 	const root = document.getElementById("root");
 	ReactDOM.render(
 	<div>
-    <h1>Welcome To React</h1>
+    <MainFrame />
 	</div>, root);
 });
