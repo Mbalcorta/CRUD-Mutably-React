@@ -1,13 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// The dashboard will pass info to construct the url to the showcase page 
-
-let resources = {
-  books: {
-    
-  },
-
-}
 
 class Dashboard extends React.Component {
   
@@ -19,10 +11,10 @@ class Dashboard extends React.Component {
     return (
       <div>
         <h1>This is the Dashboard</h1>
-        <button>Books</button>
-        <button>Pokemon</button>
-        <button>Albums</button>
-        </div>
+        <button onClick={() => this.props.renderShowcase('books')}>Books</button>
+        <button onClick={() => this.props.renderShowcase('pokemon')}>Pokemon</button>
+        <button onClick={() => this.props.renderShowcase('albums')}>Albums</button>
+      </div>
     )
   }
 }

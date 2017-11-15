@@ -3,34 +3,44 @@ import ReactDOM from 'react-dom';
 import Dashboard from './dashboard'
 import Showcase from './showcase'
 
+
 class MainFrame extends React.Component {
-  
+
   constructor(props) {
     super(props)
 
+    this.renderShowcase = this.renderShowcase.bind(this)
+    this.renderDashboard = this.renderDashboard.bind(this)
+
     this.state = {
-      show: <Dashboard />
-    }
-    
-  }
-
-  showDashboard() {
-    this.setState = {
-      show: <Dashboard />
+      show: <Dashboard renderShowcase={this.renderShowcase} />
     }
   }
 
-  showShowcase(resource) {
-    this.setState = {
-      show: <Showcase resource = {resource} />
-    }
+  renderShowcase(resource) {
+    this.setState(
+      {
+        show: <Showcase resource={resource.toLowerCase()} renderDashboard={this.renderDashboard} />
+      }
+    )
+  }
+
+  renderDashboard() {
+    this.setState(
+      {
+        show: <Dashboard renderShowcase={this.renderShowcase} />
+      }
+    )
   }
 
   render() {
     return (
-      <div> { this.state.show } </div>
+      <div>
+        <div> {this.state.show} </div>
+      </div>
     )
   }
+
 }
 
 export default MainFrame
